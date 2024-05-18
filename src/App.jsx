@@ -23,26 +23,24 @@ function App() {
           <Feed />
         </div>
       ),
-      children: [
-        {
-          path: "searchResult/:searchQuery",
-          element: (
-            <div className="flex flex-col h-full">
-              <Header />
-              <SearchResult />
-            </div>
-          ),
-        },
-        {
-          path: "video/:id",
-          element: (
-            <div className="flex flex-col h-full">
-              <Header />
-              <VideoDetails />
-            </div>
-          ),
-        },
-      ],
+    },
+    {
+      path: "/searchResult/:searchQuery",
+      element: (
+        <div className="flex flex-col h-full">
+          <Header />
+          <SearchResult />
+        </div>
+      ),
+    },
+    {
+      path: "/video/:id",
+      element: (
+        <div className="flex flex-col h-full">
+          <Header />
+          <VideoDetails />
+        </div>
+      ),
     },
   ]);
 

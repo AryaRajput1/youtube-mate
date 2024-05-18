@@ -26,7 +26,7 @@ function Header() {
   };
 
   const mobileMenuToggle = () => {
-    setMobileMenu(!mobileMenu);
+    setMobileMenu(prev => !prev);
   };
 
   const { pathname } = useLocation();

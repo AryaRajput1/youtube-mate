@@ -5,6 +5,7 @@ export const Context = createContext();
 
 export const AppContext = ({children}) => {
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("New");
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -15,11 +16,15 @@ export const AppContext = ({children}) => {
 
     const fetchSelectedCategoryData = (query) => {
         setLoading(true);
+        setError(false)
         fetchDataFromApi(`search/?q=${query}`).then(({ contents }) => {
             console.log(contents);
             setSearchResults(contents);
             setLoading(false);
-        });
+        }).catch(e=>{
+            setError(true)
+            setLoading(false);
+        })
     };
 
     return (
